@@ -1,13 +1,17 @@
-name: Quran4Car
+name: Build Android APK
 
 on:
   push:
-    branches: [ "main", "master" ] # Triggers the build whenever you update code
-  workflow_dispatch: # Allows you to trigger the build manually
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # 👇 CHANGE THIS to match your exact folder name on GitHub
+    defaults:
+      run:
+        working-directory: ./Quran4Car 
 
     steps:
     - name: Checkout Source Code
@@ -30,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: my-debug-apk
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: Quran4Car/app/build/outputs/apk/debug/app-debug.apk # 👈 Updated path
