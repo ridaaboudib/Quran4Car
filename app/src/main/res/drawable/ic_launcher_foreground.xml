@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group android:scaleX="0.35"
+        android:scaleY="0.35"
+        android:translateX="35"
+        android:translateY="35">
+        <!-- Book base -->
+        <path
+            android:fillColor="#1B4D3E"
+            android:pathData="M54,10 L54,98 C54,98 20,85 20,54 L20,20 C20,10 35,10 54,10 Z"/>
+        <path
+            android:fillColor="#2A7A5F"
+            android:pathData="M54,10 L54,98 C54,98 88,85 88,54 L88,20 C88,10 73,10 54,10 Z"/>
+        <!-- Quran symbol (star and crescent) -->
+        <path
+            android:fillColor="#D4AF37"
+            android:pathData="M54,30 C45,30 38,37 38,46 C38,55 45,62 54,62 C63,62 70,55 70,46 C70,37 63,30 54,30 Z"/>
+        <path
+            android:fillColor="#D4AF37"
+            android:pathData="M68,35 C72,35 75,38 75,42 C75,46 72,49 68,49 C64,49 61,46 61,42 C61,38 64,35 68,35 Z"/>
+    </group>
+</vector>

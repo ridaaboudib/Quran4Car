@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_green"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/widget_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="📖 مصحف البلوثوث"
+        android:textColor="@color/text_on_primary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- Surah Name -->
+    <TextView
+        android:id="@+id/widget_surah_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_header"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="الفاتحة"
+        android:textColor="@color/text_on_primary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Reader Name -->
+    <TextView
+        android:id="@+id/widget_reader_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_surah_name"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="الشيخ مصطفى الفرجاني"
+        android:textColor="@color/secondary_gold"
+        android:textSize="12sp" />
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/widget_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/widget_reader_name"
+        android:layout_marginTop="12dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/widget_progress" />
+
+    <!-- Progress Text -->
+    <TextView
+        android:id="@+id/widget_progress_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_progress_bar"
+        android:layout_marginTop="4dp"
+        android:text="00:00 / 00:00"
+        android:textColor="@color/text_on_primary"
+        android:textSize="10sp" />
+
+    <!-- Control Buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/widget_play_pause"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/widget_button_background"
+            android:src="@android:drawable/ic_media_play"
+            android:contentDescription="Play/Pause"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/widget_next"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/widget_button_background"
+            android:src="@android:drawable/ic_media_next"
+            android:contentDescription="Next"
+            android:scaleType="centerInside" />
+
+    </LinearLayout>
+
+</RelativeLayout>
