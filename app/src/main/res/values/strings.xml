@@ -1,133 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مصحف البلوثوث</string>
-
-    <!-- Navigation -->
-    <string name="player">الرئيسية</string>
-    <string name="library">المكتبة</string>
-    <string name="bookmarks">العلامات</string>
-    <string name="readers">المشايخ</string>
-    <string name="settings">الإعدادات</string>
-
-    <!-- Player Controls -->
+    <string name="quran_player">تطبيق تشغيل القرآن الكريم عبر البلوثوث</string>
+    <string name="bluetooth_connected">البلوثوث متصل</string>
+    <string name="bluetooth_disconnected">البلوثوث غير متصل</string>
     <string name="play">تشغيل</string>
-    <string name="pause">إيقاف</string>
+    <string name="pause">إيقاف مؤقت</string>
     <string name="next">التالي</string>
     <string name="previous">السابق</string>
-    <string name="shuffle">عشوائي</string>
-    <string name="repeat">تكرار</string>
-
-    <!-- Bluetooth -->
-    <string name="bluetooth_car">بلوثوث السيارة</string>
-    <string name="ready_to_play">جاهز للتشغيل التلقائي</string>
-    <string name="bluetooth_connected">متصل</string>
-    <string name="bluetooth_disconnected">غير متصل</string>
-
-    <!-- Library -->
-    <string name="search_surah">ابحث عن سورة...</string>
-    <string name="surah_count">%d سورة</string>
-    <string name="meccan">مكية</string>
-    <string name="medinan">مدنية</string>
-    <string name="all_surahs">جميع السور</string>
-    <string name="download_all">تنزيل الكل</string>
-    <string name="downloaded">تم التنزيل</string>
-    <string name="downloading">جاري التنزيل</string>
-    <string name="pending">في الانتظار</string>
-
-    <!-- Readers -->
-    <string name="add_reader">إضافة قارئ جديد</string>
-    <string name="reader_name">اسم الشيخ</string>
-    <string name="country">البلد</string>
-    <string name="description">الوصف</string>
-    <string name="audio_path">مسار الملفات</string>
-    <string name="add">إضافة</string>
-    <string name="cancel">إلغاء</string>
-
-    <!-- Bookmarks -->
-    <string name="add_bookmark">إضافة علامة</string>
-    <string name="edit_bookmark">تعديل العلامة</string>
-    <string name="delete_bookmark">حذف العلامة</string>
-    <string name="delete_bookmark_confirm">هل أنت متأكد من حذف هذه العلامة؟</string>
-    <string name="no_bookmarks">لا توجد علامات محفوظة</string>
-    <string name="add_bookmark_hint">أضف علامة أثناء الاستماع</string>
-    <string name="bookmark_note">ملاحظة</string>
-
-    <!-- Sleep Timer -->
+    <string name="random_mode">الوضع العشوائي</string>
     <string name="sleep_timer">مؤقت النوم</string>
-    <string name="sleep_timer_minutes">%d دقيقة متبقية</string>
-    <string name="no_timer">بدون نهاية</string>
-    <string name="cancel_timer">إلغاء المؤقت</string>
-
-    <!-- Repeat Ayah -->
-    <string name="repeat_ayah">تكرار آية</string>
-    <string name="repeat_count">%d مرات</string>
-    <string name="repeat_infinite">تكرار لا نهائي (∞)</string>
-    <string name="disable_repeat">إلغاء التكرار</string>
-    <string name="enable_repeat">تفعيل</string>
-
-    <!-- Settings -->
-    <string name="playback_settings">إعدادات التشغيل</string>
-    <string name="bluetooth_settings">إعدادات البلوثوث</string>
-    <string name="download_settings">إعدادات التنزيل</string>
-    <string name="theme_settings">المظهر</string>
-    <string name="about">حول التطبيق</string>
-
-    <string name="auto_play">تشغيل تلقائي</string>
-    <string name="auto_play_desc">بدء التشغيل عند اتصال البلوثوث</string>
-    <string name="shuffle_mode">وضع عشوائي</string>
-    <string name="shuffle_mode_desc">تشغيل السور بشكل عشوائي</string>
-    <string name="repeat_mode">تكرار</string>
-    <string name="repeat_mode_desc">تكرار السورة الحالية</string>
-    <string name="bluetooth_auto_detect">اكتشاف تلقائي</string>
-    <string name="bluetooth_auto_detect_desc">بدء التشغيل عند اكتشاف جهاز سيارة</string>
-    <string name="auto_resume">استئناف تلقائي</string>
-    <string name="auto_resume_desc">الاستمرار من آخر موضع عند إعادة الاتصال</string>
-    <string name="car_keywords">كلمات مفتاحية للسيارات</string>
-    <string name="car_keywords_desc">إدارة كلمات البحث لجهاز السيارة</string>
-    <string name="wifi_only">تنزيل عبر WiFi فقط</string>
-    <string name="wifi_only_desc">عدم استخدام البيانات المحمولة</string>
-    <string name="manage_downloads">إدارة التنزيلات</string>
-    <string name="manage_downloads_desc">تحميل أو حذف ملفات الصوت</string>
-    <string name="select_theme">اختر السمة</string>
-    <string name="theme_light">فاتح (كريمي)</string>
-    <string name="theme_dark">داكن</string>
-    <string name="theme_islamic_green">أخضر إسلامي</string>
-    <string name="theme_royal_gold">ذهبي ملكي</string>
-
-    <!-- Volume -->
-    <string name="volume">مستوى الصوت</string>
-
-    <!-- Version Info -->
-    <string name="version">الإصدار</string>
-    <string name="source">المصدر</string>
-    <string name="surah_count_label">عدد السور</string>
-
-    <!-- Default Values -->
-    <string name="default_reader">افتراضي</string>
-    <string name="random_play">تشغيل عشوائي</string>
-    <string name="select_surah">اختر سورة</string>
-    <string name="no_surah_selected">لم يتم اختيار سورة</string>
-
-    <!-- Widget -->
-    <string name="widget_description">مشغل القرآن الكريم على الشاشة الرئيسية</string>
-
-    <!-- Errors -->
-    <string name="error_loading">حدث خطأ في التحميل</string>
-    <string name="error_download">حدث خطأ في التنزيل</string>
-    <string name="no_internet">لا يوجد اتصال بالإنترنت</string>
-
-    <!-- Download -->
-    <string name="downloading_quran">تحميل القرآن الكريم</string>
-    <string name="downloading_surah">جاري تحميل السورة %d</string>
-    <string name="download_complete">اكتمل التنزيل</string>
-    <string name="download_paused">تم إيقاف التنزيل مؤقتاً</string>
-    <string name="downloaded_count">تم تحميل %d من %d</string>
-
-    <!-- Common Actions -->
-    <string name="save">حفظ</string>
-    <string name="delete">حذف</string>
-    <string name="edit">تعديل</string>
-    <string name="close">إغلاق</string>
-    <string name="apply">تطبيق</string>
-    <string name="confirm">تأكيد</string>
+    <string name="bookmarks">العلامات المحفوظة</string>
+    <string name="downloads">التحميلات</string>
+    <string name="settings">الإعدادات</string>
 </resources>

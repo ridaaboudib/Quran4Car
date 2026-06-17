@@ -4,65 +4,61 @@ import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.Build
+import android.util.Log
 import com.app.quran.service.audio.QuranPlayerService
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
-@AndroidEntryPoint
 class BluetoothCarReceiver : BroadcastReceiver() {
 
-    @Inject
-    lateinit var bluetoothHelper: BluetoothHelper
+    companion object {
+        private const val TAG = "BluetoothCarReceiver"
+        
+        private val CAR_KEYWORDS = setOf(
+            "car", "vehicle", "automobile", "auto", "cars",
+            "toyota", "honda", "bmw", "mercedes", "audi", "ford",
+            "chevrolet", "gmc", "nissan", "hyundai", "kia", "lexus",
+            "porsche", "volvo", "tesla", "jaguar", "land rover",
+            "vw", "volkswagen", "mazda", "subaru", "suzuki",
+            "mitsubishi", "jeep", "dodge", "chrysler", "buick",
+            "cadillac", "lincoln", "infiniti", "acura", "genesis",
+            "carduo", "car multimedia", "car audio", "car kit",
+            "carplay", "android auto", "car host", "car mode",
+            "handsfree", "parrot", "carkit", "motorola"
+        )
+    }
 
-    override fun onReceive(context: Context, intent: Intent) {
+    override fun onReceive(context: Context?, intent: Intent?) {
+        if (context == null || intent == null) return
+
         when (intent.action) {
             BluetoothDevice.ACTION_ACL_CONNECTED -> {
-                handleConnection(context, intent)
+                val device: BluetoothDevice? = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
+                device?.let {
+                    if (isCarDevice(it)) {
+                        Log.d(TAG, "Car Bluetooth connected: ${it.name}")
+                        startPlayerService(context)
+                    }
+                }
             }
             BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
-                handleDisconnection(context, intent)
+                Log.d(TAG, "Bluetooth disconnected")
             }
         }
     }
 
-    private fun handleConnection(context: Context, intent: Intent) {
-        val device: BluetoothDevice? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice::class.java)
-        } else {
-            @Suppress("DEPRECATION")
-            intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
-        }
-
-        device?.let {
-            if (bluetoothHelper.isCarDevice(it)) {
-                // Save as last car device
-                bluetoothHelper.saveLastCarDevice(it)
-
-                // Check if auto-resume is enabled and there's saved position
-                val lastPosition = if (bluetoothHelper.isAutoResumeEnabled()) {
-                    bluetoothHelper.getLastPlayedPosition()
-                } else null
-
-                // Start Quran player with optional resume position
-                QuranPlayerService.startWithResume(context, lastPosition?.first, lastPosition?.second)
-            }
+    private fun isCarDevice(device: BluetoothDevice): Boolean {
+        val deviceName = device.name?.lowercase() ?: return false
+        return CAR_KEYWORDS.any { keyword ->
+            deviceName.contains(keyword)
         }
     }
 
-    private fun handleDisconnection(context: Context, intent: Intent) {
-        val device: BluetoothDevice? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice::class.java)
-        } else {
-            @Suppress("DEPRECATION")
-            intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
-        }
-
-        device?.let {
-            if (bluetoothHelper.isCarDevice(it)) {
-                // Save current position before pausing
-                QuranPlayerService.savePositionAndPause(context)
-            }
+    private fun startPlayerService(context: Context) {
+        val intent = Intent(context, QuranPlayerService::class.java)
+        intent.action = QuranPlayerService.ACTION_START_PLAYING
+        try {
+            context.startService(intent)
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to start player service", e)
         }
     }
 }

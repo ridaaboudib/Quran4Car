@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.QuranBluetoothPlayer" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/primary_green</item>
-        <item name="android:navigationBarColor">@color/surface_white</item>
+    <style name="Theme.QuranBluetoothPlayer" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/light_primary</item>
+        <item name="android:colorAccent">@color/accent_turquoise</item>
+        <item name="android:colorBackground">@color/light_background</item>
+    </style>
+
+    <style name="Theme.QuranBluetoothPlayer.Dark" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/dark_primary</item>
+        <item name="android:colorAccent">@color/accent_light_turquoise</item>
+        <item name="android:colorBackground">@color/dark_background</item>
+    </style>
+
+    <style name="Theme.QuranBluetoothPlayer.Green" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/green_primary</item>
+        <item name="android:colorAccent">@color/green_secondary</item>
+        <item name="android:colorBackground">@color/green_background</item>
+    </style>
+
+    <style name="Theme.QuranBluetoothPlayer.Gold" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/gold_primary</item>
+        <item name="android:colorAccent">@color/gold_secondary</item>
+        <item name="android:colorBackground">@color/gold_background</item>
     </style>
 </resources>

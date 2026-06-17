@@ -1,9 +1,10 @@
 package com.app.quran.di
 
 import android.content.Context
-import com.app.quran.data.local.db.AppDatabase
-import com.app.quran.data.local.db.dao.ReaderDao
-import com.app.quran.data.local.db.dao.SurahDao
+import com.app.quran.data.local.dao.BookmarkDao
+import com.app.quran.data.local.dao.ReaderDao
+import com.app.quran.data.local.dao.SurahDao
+import com.app.quran.data.local.database.QuranDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,21 +16,18 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
-        return AppDatabase.getDatabase(context)
-    }
+    @Provides
+    fun provideQuranDatabase(
+        @ApplicationContext context: Context
+    ): QuranDatabase = QuranDatabase.getInstance(context)
 
     @Provides
-    @Singleton
-    fun provideSurahDao(database: AppDatabase): SurahDao {
-        return database.surahDao()
-    }
+    fun provideSurahDao(database: QuranDatabase): SurahDao = database.surahDao()
 
     @Provides
-    @Singleton
-    fun provideReaderDao(database: AppDatabase): ReaderDao {
-        return database.readerDao()
-    }
+    fun provideReaderDao(database: QuranDatabase): ReaderDao = database.readerDao()
+
+    @Provides
+    fun provideBookmarkDao(database: QuranDatabase): BookmarkDao = database.bookmarkDao()
 }
